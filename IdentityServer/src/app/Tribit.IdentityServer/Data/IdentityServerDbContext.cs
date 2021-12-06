@@ -4,9 +4,9 @@ using Tribit.IdentityServer.Domain.Entities;
 
 namespace Tribit.IdentityServer.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class IdentityServerDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public IdentityServerDbContext(DbContextOptions<IdentityServerDbContext> options)
             : base(options)
         {
         }

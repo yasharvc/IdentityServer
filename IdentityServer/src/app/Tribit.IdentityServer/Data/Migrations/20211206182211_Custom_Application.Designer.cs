@@ -11,7 +11,7 @@ using Tribit.IdentityServer.Data;
 
 namespace Tribit.IdentityServer.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(IdentityServerDbContext))]
     [Migration("20211206182211_Custom_Application")]
     partial class Custom_Application
     {
