@@ -13,11 +13,14 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<IdentityServerDbContext>();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
+
+AddGoogleAuthentication(builder.Services, builder.Configuration);
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -25,7 +28,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -40,3 +42,26 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+
+void AddGoogleAuthentication(IServiceCollection services, ConfigurationManager configuration)
+{
+    var auth = services.AddAuthentication();
+    IConfigurationSection google = configuration.GetSection("Google");
+    if (google != null && google.GetValue<bool>("Enable")) {
+        auth.AddGoogle(options =>
+        {
+            options.ClientId = google["ClientId"];
+            options.ClientSecret = google["ClientSecret"];
+        });
+    }
+    IConfigurationSection facebook = configuration.GetSection("Facebook");
+    if (google != null && facebook.GetValue<bool>("Enable"))
+    {
+        auth.AddFacebook(options =>
+        {
+            options.ClientId = facebook["ClientId"];
+            options.AppSecret = facebook["AppSecret"];
+        });
+    }
+}
