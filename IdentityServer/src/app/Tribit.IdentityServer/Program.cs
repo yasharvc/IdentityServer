@@ -1,22 +1,31 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Tribit.IdentityServer.App;
 using Tribit.IdentityServer.Data;
 using Tribit.IdentityServer.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<IdentityServerDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<IdentityServerDbContext>();
+builder.Services
+    .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<IdentityServerDbContext>()
+    .AddDefaultTokenProviders();
+
+var auth = builder.Services.AddAuthentication();
+
+AddSocialMediaAuthentication(auth, builder.Configuration);
+
 builder.Services.AddRazorPages()
     .AddRazorRuntimeCompilation();
 
-AddGoogleAuthentication(builder.Services, builder.Configuration);
+AddEmailSender(builder.Services);
 
 
 var app = builder.Build();
@@ -44,19 +53,16 @@ app.MapRazorPages();
 app.Run();
 
 
-void AddGoogleAuthentication(IServiceCollection services, ConfigurationManager configuration)
+void AddSocialMediaAuthentication(AuthenticationBuilder auth, ConfigurationManager configuration)
 {
-    var auth = services.AddAuthentication();
-    IConfigurationSection google = configuration.GetSection("Google");
-    if (google != null && google.GetValue<bool>("Enable")) {
-        auth.AddGoogle(options =>
-        {
-            options.ClientId = google["ClientId"];
-            options.ClientSecret = google["ClientSecret"];
-        });
-    }
+    AddGoogle(auth, configuration);
+    AddFacebook(auth, configuration);
+}
+
+void AddFacebook(AuthenticationBuilder auth, ConfigurationManager configuration)
+{
     IConfigurationSection facebook = configuration.GetSection("Facebook");
-    if (google != null && facebook.GetValue<bool>("Enable"))
+    if (facebook != null && facebook.GetValue<bool>("Enable"))
     {
         auth.AddFacebook(options =>
         {
@@ -64,4 +70,22 @@ void AddGoogleAuthentication(IServiceCollection services, ConfigurationManager c
             options.AppSecret = facebook["AppSecret"];
         });
     }
+}
+
+void AddGoogle(AuthenticationBuilder auth, ConfigurationManager configuration)
+{
+    IConfigurationSection google = configuration.GetSection("Google");
+    if (google != null && google.GetValue<bool>("Enable"))
+    {
+        auth.AddGoogle(options =>
+        {
+            options.ClientId = google["ClientId"];
+            options.ClientSecret = google["ClientSecret"];
+        });
+    }
+}
+
+void AddEmailSender(IServiceCollection services)
+{
+    services.AddTransient<IEmailSender, NullEmailSender>();
 }

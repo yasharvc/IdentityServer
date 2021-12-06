@@ -59,6 +59,8 @@ namespace Tribit.IdentityServer.App.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "First name")]
+            public string FirstName { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -70,7 +72,8 @@ namespace Tribit.IdentityServer.App.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FirstName = user.FirstName,
             };
         }
 
@@ -111,6 +114,8 @@ namespace Tribit.IdentityServer.App.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            user.FirstName = Input.FirstName;
+            await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
