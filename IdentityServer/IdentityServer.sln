@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.IdentityServer", "Tribit.IdentityServer\Tribit.IdentityServer.csproj", "{6E03D2F3-1241-4D9C-B754-48387DA6283A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{141AC9B8-5311-4793-B8EB-FADEA8CA4C27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B139F30D-EB6D-412A-9A25-A306882173AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tribit.IdentityServer.App", "src\app\Tribit.IdentityServer\Tribit.IdentityServer.App.csproj", "{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{4794DD10-2C67-4120-B494-A65FDA0C2B37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{6F9CFF08-829C-4D84-A5A0-356D17C306DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.IdentityServer.Shared", "src\infrastructure\Tribit.IdentityServer.Shared\Tribit.IdentityServer.Shared.csproj", "{8718086A-990D-492F-AB2B-023C2345BC11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.IdentityServer.Domain", "src\infrastructure\Tribit.IdentityServer.Domain\Tribit.IdentityServer.Domain.csproj", "{1474C175-ED0E-4574-9714-BFAD53BDD32B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +23,28 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6E03D2F3-1241-4D9C-B754-48387DA6283A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E03D2F3-1241-4D9C-B754-48387DA6283A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E03D2F3-1241-4D9C-B754-48387DA6283A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E03D2F3-1241-4D9C-B754-48387DA6283A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8718086A-990D-492F-AB2B-023C2345BC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8718086A-990D-492F-AB2B-023C2345BC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8718086A-990D-492F-AB2B-023C2345BC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8718086A-990D-492F-AB2B-023C2345BC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{416EA99F-6CC7-4DD2-9160-1B2F33ACD3DF} = {4794DD10-2C67-4120-B494-A65FDA0C2B37}
+		{4794DD10-2C67-4120-B494-A65FDA0C2B37} = {141AC9B8-5311-4793-B8EB-FADEA8CA4C27}
+		{6F9CFF08-829C-4D84-A5A0-356D17C306DF} = {141AC9B8-5311-4793-B8EB-FADEA8CA4C27}
+		{8718086A-990D-492F-AB2B-023C2345BC11} = {6F9CFF08-829C-4D84-A5A0-356D17C306DF}
+		{1474C175-ED0E-4574-9714-BFAD53BDD32B} = {6F9CFF08-829C-4D84-A5A0-356D17C306DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {118463D1-7CAA-49DA-AF5E-009E9CE5AA4B}
