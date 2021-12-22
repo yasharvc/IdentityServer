@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Tribit.IdentityServer.App;
 using Tribit.IdentityServer.Data;
-using Tribit.IdentityServer.Domain.Entities;
+using Tribit.IdentityServer.Shared.Entities;
+using Tribit.IdentityServer.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services
     .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<IdentityServerDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddJWTTokenServices(builder.Configuration);
 
 var auth = builder.Services.AddAuthentication();
 

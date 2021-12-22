@@ -159,7 +159,7 @@ namespace Tribit.IdentityServer.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Tribit.IdentityServer.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("Tribit.IdentityServer.Shared.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -243,7 +243,7 @@ namespace Tribit.IdentityServer.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Tribit.IdentityServer.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("Tribit.IdentityServer.Shared.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -252,7 +252,7 @@ namespace Tribit.IdentityServer.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Tribit.IdentityServer.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("Tribit.IdentityServer.Shared.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -267,7 +267,7 @@ namespace Tribit.IdentityServer.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tribit.IdentityServer.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("Tribit.IdentityServer.Shared.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -276,7 +276,7 @@ namespace Tribit.IdentityServer.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Tribit.IdentityServer.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("Tribit.IdentityServer.Shared.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

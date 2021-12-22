@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Tribit.IdentityServer.Domain.Entities;
+using Tribit.IdentityServer.Shared.Entities;
 
 namespace Tribit.IdentityServer.App.Areas.Identity.Pages.Account
 {

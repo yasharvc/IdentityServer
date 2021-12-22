@@ -1,9 +1,8 @@
-﻿
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
-namespace Tribit.IdentityServer.Domain.Entities
+namespace Tribit.IdentityServer.Shared.Entities
 {
-    public class ApplicationUser : IdentityUser
+	public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;

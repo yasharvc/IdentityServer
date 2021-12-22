@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Tribit.IdentityServer.Domain.Entities;
+using Tribit.IdentityServer.Shared.Entities;
 
 namespace Tribit.IdentityServer.App.Areas.Identity.Pages.Account.Manage
 {

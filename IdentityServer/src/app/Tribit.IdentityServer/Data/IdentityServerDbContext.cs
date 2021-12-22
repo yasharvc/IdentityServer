@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Tribit.IdentityServer.Domain.Entities;
+using Tribit.IdentityServer.Shared.Entities;
 
 namespace Tribit.IdentityServer.Data
 {
