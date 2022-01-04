@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{4794DD10-2C6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{6F9CFF08-829C-4D84-A5A0-356D17C306DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.IdentityServer.Shared", "src\infrastructure\Tribit.IdentityServer.Shared\Tribit.IdentityServer.Shared.csproj", "{8718086A-990D-492F-AB2B-023C2345BC11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tribit.IdentityServer.Shared", "src\infrastructure\Tribit.IdentityServer.Shared\Tribit.IdentityServer.Shared.csproj", "{8718086A-990D-492F-AB2B-023C2345BC11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.IdentityServer.Domain", "src\infrastructure\Tribit.IdentityServer.Domain\Tribit.IdentityServer.Domain.csproj", "{1474C175-ED0E-4574-9714-BFAD53BDD32B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tribit.IdentityServer.Domain", "src\infrastructure\Tribit.IdentityServer.Domain\Tribit.IdentityServer.Domain.csproj", "{1474C175-ED0E-4574-9714-BFAD53BDD32B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribit.TestWebApp", "src\app\Tribit.TestWebApp\Tribit.TestWebApp.csproj", "{5D535785-7B67-421E-A153-5E308963EEA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1474C175-ED0E-4574-9714-BFAD53BDD32B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D535785-7B67-421E-A153-5E308963EEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D535785-7B67-421E-A153-5E308963EEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D535785-7B67-421E-A153-5E308963EEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D535785-7B67-421E-A153-5E308963EEA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{6F9CFF08-829C-4D84-A5A0-356D17C306DF} = {141AC9B8-5311-4793-B8EB-FADEA8CA4C27}
 		{8718086A-990D-492F-AB2B-023C2345BC11} = {6F9CFF08-829C-4D84-A5A0-356D17C306DF}
 		{1474C175-ED0E-4574-9714-BFAD53BDD32B} = {6F9CFF08-829C-4D84-A5A0-356D17C306DF}
+		{5D535785-7B67-421E-A153-5E308963EEA4} = {4794DD10-2C67-4120-B494-A65FDA0C2B37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {118463D1-7CAA-49DA-AF5E-009E9CE5AA4B}

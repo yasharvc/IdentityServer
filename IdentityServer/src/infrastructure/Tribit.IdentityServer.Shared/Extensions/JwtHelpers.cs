@@ -50,12 +50,12 @@ namespace Tribit.IdentityServer.Shared.Extensions
             }
         }
 
-        public static void AddJWTTokenServices(this IServiceCollection Services, IConfiguration Configuration,string configurationKey = nameof(JwtSettings))
+        public static void AddJWTTokenServices(this IServiceCollection services, IConfiguration configuration,string configurationKey = nameof(JwtSettings))
         {
             var bindJwtSettings = new JwtSettings();
-            Configuration.Bind(string.IsNullOrEmpty(configurationKey) ? "JwtSettings" : configurationKey, bindJwtSettings);
-            Services.AddSingleton(bindJwtSettings);
-            Services.AddAuthentication(options => {
+            configuration.Bind(string.IsNullOrEmpty(configurationKey) ? "JwtSettings" : configurationKey, bindJwtSettings);
+            services.AddSingleton(bindJwtSettings);
+            services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => {

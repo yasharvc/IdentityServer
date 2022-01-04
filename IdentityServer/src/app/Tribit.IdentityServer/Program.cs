@@ -53,7 +53,14 @@ builder.Services.AddSwaggerGen(options => {
                 },
 				Array.Empty<string>()
 		}
+    }); 
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "API Documentation",
+        Description = "Identity Server API"
     });
+    options.DocInclusionPredicate((name, api) => true);
 });
 
 var app = builder.Build();
@@ -61,6 +68,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+   
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -68,6 +77,12 @@ else
     app.UseHsts();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Server API V1");
+    c.RoutePrefix = string.Empty;
+});
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
